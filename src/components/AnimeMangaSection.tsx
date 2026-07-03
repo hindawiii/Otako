@@ -2,6 +2,8 @@ import { useState } from "react";
 import { HUB_COLORS, LegalBadge } from "./anime/shared";
 import { NewsTab } from "./anime/NewsTab";
 import { WatchTab } from "./anime/WatchTab";
+import { MangaTab } from "./anime/MangaTab";
+import { MusicTab } from "./anime/MusicTab";
 
 const TABS = [
   { id: "news", label: "الأخبار", icon: "📰" },
@@ -62,8 +64,8 @@ export function AnimeMangaSection() {
       <div className="mx-auto max-w-screen-lg px-4 py-5 pb-28">
         {active === "news" && <NewsTab />}
         {active === "watch" && <WatchTab />}
-        {active === "manga" && <ComingSoon label="📚 مانجا — المرحلة 2" />}
-        {active === "music" && <ComingSoon label="🎵 موسيقى — المرحلة 2" />}
+        {active === "manga" && <MangaTab />}
+        {active === "music" && <MusicTab />}
         {active === "gallery" && <ComingSoon label="🖼️ معرض الصور — المرحلة 3" />}
         {active === "lists" && <ComingSoon label="⭐ قوائم المتابعة — المرحلة 3" />}
       </div>
