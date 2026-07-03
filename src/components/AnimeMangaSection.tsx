@@ -4,6 +4,8 @@ import { NewsTab } from "./anime/NewsTab";
 import { WatchTab } from "./anime/WatchTab";
 import { MangaTab } from "./anime/MangaTab";
 import { MusicTab } from "./anime/MusicTab";
+import { GalleryTab } from "./anime/GalleryTab";
+import { ListsTab } from "./anime/ListsTab";
 
 const TABS = [
   { id: "news", label: "الأخبار", icon: "📰" },
@@ -66,22 +68,10 @@ export function AnimeMangaSection() {
         {active === "watch" && <WatchTab />}
         {active === "manga" && <MangaTab />}
         {active === "music" && <MusicTab />}
-        {active === "gallery" && <ComingSoon label="🖼️ معرض الصور — المرحلة 3" />}
-        {active === "lists" && <ComingSoon label="⭐ قوائم المتابعة — المرحلة 3" />}
+        {active === "gallery" && <GalleryTab />}
+        {active === "lists" && <ListsTab />}
       </div>
     </div>
   );
 }
 
-function ComingSoon({ label }: { label: string }) {
-  return (
-    <div
-      className="rounded-2xl border p-10 text-center"
-      style={{ background: HUB_COLORS.card, borderColor: HUB_COLORS.border }}
-    >
-      <div className="mb-2 text-3xl">🚧</div>
-      <div className="text-sm font-bold text-white">{label}</div>
-      <div className="mt-1 text-[11px] text-white/50">سيتم بناؤه في المرحلة التالية.</div>
-    </div>
-  );
-}
