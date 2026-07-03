@@ -75,15 +75,3 @@ export function AnimeMangaSection() {
   );
 }
 
-function ComingSoon({ label }: { label: string }) {
-  return (
-    <div
-      className="rounded-2xl border p-10 text-center"
-      style={{ background: HUB_COLORS.card, borderColor: HUB_COLORS.border }}
-    >
-      <div className="mb-2 text-3xl">🚧</div>
-      <div className="text-sm font-bold text-white">{label}</div>
-      <div className="mt-1 text-[11px] text-white/50">سيتم بناؤه في المرحلة التالية.</div>
-    </div>
-  );
-}
