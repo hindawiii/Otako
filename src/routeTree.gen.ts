@@ -13,6 +13,7 @@ import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as GiftsMangaRouteImport } from './routes/gifts-manga'
+import { Route as GamesHubRouteImport } from './routes/games-hub'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ArenaRouteImport } from './routes/arena'
@@ -39,6 +40,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const GiftsMangaRoute = GiftsMangaRouteImport.update({
   id: '/gifts-manga',
   path: '/gifts-manga',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GamesHubRoute = GamesHubRouteImport.update({
+  id: '/games-hub',
+  path: '/games-hub',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/arena': typeof ArenaRoute
   '/auth': typeof AuthRoute
   '/chat': typeof ChatRouteWithChildren
+  '/games-hub': typeof GamesHubRoute
   '/gifts-manga': typeof GiftsMangaRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/arena': typeof ArenaRoute
   '/auth': typeof AuthRoute
   '/chat': typeof ChatRouteWithChildren
+  '/games-hub': typeof GamesHubRoute
   '/gifts-manga': typeof GiftsMangaRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/arena': typeof ArenaRoute
   '/auth': typeof AuthRoute
   '/chat': typeof ChatRouteWithChildren
+  '/games-hub': typeof GamesHubRoute
   '/gifts-manga': typeof GiftsMangaRoute
   '/privacy': typeof PrivacyRoute
   '/profile': typeof ProfileRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/arena'
     | '/auth'
     | '/chat'
+    | '/games-hub'
     | '/gifts-manga'
     | '/privacy'
     | '/profile'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/arena'
     | '/auth'
     | '/chat'
+    | '/games-hub'
     | '/gifts-manga'
     | '/privacy'
     | '/profile'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/arena'
     | '/auth'
     | '/chat'
+    | '/games-hub'
     | '/gifts-manga'
     | '/privacy'
     | '/profile'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   ArenaRoute: typeof ArenaRoute
   AuthRoute: typeof AuthRoute
   ChatRoute: typeof ChatRouteWithChildren
+  GamesHubRoute: typeof GamesHubRoute
   GiftsMangaRoute: typeof GiftsMangaRoute
   PrivacyRoute: typeof PrivacyRoute
   ProfileRoute: typeof ProfileRoute
@@ -200,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/gifts-manga'
       fullPath: '/gifts-manga'
       preLoaderRoute: typeof GiftsMangaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/games-hub': {
+      id: '/games-hub'
+      path: '/games-hub'
+      fullPath: '/games-hub'
+      preLoaderRoute: typeof GamesHubRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -270,6 +290,7 @@ const rootRouteChildren: RootRouteChildren = {
   ArenaRoute: ArenaRoute,
   AuthRoute: AuthRoute,
   ChatRoute: ChatRouteWithChildren,
+  GamesHubRoute: GamesHubRoute,
   GiftsMangaRoute: GiftsMangaRoute,
   PrivacyRoute: PrivacyRoute,
   ProfileRoute: ProfileRoute,
