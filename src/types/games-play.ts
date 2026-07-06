@@ -1,5 +1,26 @@
-export type GameId = "anime-quiz" | "emoji-guess" | "manga-memory" | "reaction-race" | "word-scramble";
-export type GameMode = "solo" | "pvp-bot" | "daily";
+export type GameId = "anime-quiz" | "emoji-guess" | "manga-memory" | "reaction-race" | "word-scramble" | "voice-guess";
+export type GameMode = "solo" | "pvp-bot" | "pvp-live" | "daily" | "event";
+
+export interface SeasonalEvent {
+  id: string;
+  name: string;
+  emoji: string;
+  theme: string;      // css color
+  startAt: number;
+  endAt: number;
+  rewardMultiplier: number;
+  description: string;
+  bonusGems: number;
+}
+
+export interface TradeOffer {
+  id: string;
+  from: { id: string; name: string; avatar: string };
+  offering: string;   // giftId
+  wants: string;      // giftId
+  status: "pending" | "accepted" | "declined";
+  createdAt: number;
+}
 
 export interface GameMeta {
   id: GameId;
