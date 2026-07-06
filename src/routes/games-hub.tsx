@@ -4,11 +4,15 @@ import { GiftSystem } from "@/components/games/GiftSystem";
 import { GamesHub } from "@/components/games/games-hub/GamesHub";
 import { Leaderboard } from "@/components/games/games-hub/Leaderboard";
 import { StatsDashboard } from "@/components/games/games-hub/StatsDashboard";
+import { SeasonalEventsPage } from "@/components/games/games-hub/SeasonalEvents";
+import { TradingSystem } from "@/components/games/games-hub/TradingSystem";
 
-type Section = "gifts" | "games" | "leaderboard" | "stats";
+type Section = "gifts" | "games" | "events" | "trade" | "leaderboard" | "stats";
 const SECTIONS: { id: Section; label: string; icon: string }[] = [
   { id: "gifts",       label: "الهدايا",   icon: "🎁" },
   { id: "games",       label: "الألعاب",   icon: "🎮" },
+  { id: "events",      label: "الأحداث",   icon: "🎉" },
+  { id: "trade",       label: "تبادل",     icon: "🔄" },
   { id: "leaderboard", label: "المتصدرون", icon: "🏆" },
   { id: "stats",       label: "إحصائياتي", icon: "📊" },
 ];
