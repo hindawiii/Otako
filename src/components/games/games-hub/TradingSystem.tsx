@@ -6,13 +6,14 @@ import { ArrowLeftRight, Check, X, Trash2, Plus } from "lucide-react";
 
 export function TradingSystem() {
   const { offers, propose, respond, remove, friends } = useTrading();
-  const { inventory, add, remove: removeGift } = useGifts();
+  const { inventory, addGift, removeGift } = useGifts();
   const [showNew, setShowNew] = useState(false);
   const [friendId, setFriendId] = useState(friends[0]?.id ?? "");
   const [offering, setOffering] = useState("");
   const [wants, setWants] = useState("");
 
-  const ownedGiftIds = Object.keys(inventory).filter(k => inventory[k] > 0);
+  const countOf = (id: string) => inventory.find(i => i.giftId === id)?.count ?? 0;
+  const ownedGiftIds = inventory.filter(i => i.count > 0).map(i => i.giftId);
   const allGifts = GIFTS;
 
   const submit = () => {
@@ -22,8 +23,8 @@ export function TradingSystem() {
   };
 
   const accept = (id: string, off: string, want: string) => {
-    if ((inventory[want] ?? 0) < 1) { respond(id, "declined"); return; }
-    removeGift(want, 1); add(off, 1);
+    if (countOf(want) < 1) { respond(id, "declined"); return; }
+    removeGift(want, 1); addGift(off);
     respond(id, "accepted");
   };
 
@@ -61,7 +62,7 @@ export function TradingSystem() {
               className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white outline-none">
               <option value="" className="bg-[#1a0a1e]">— اختر —</option>
               {ownedGiftIds.map(id => { const g = gift(id); if (!g) return null;
-                return <option key={id} value={id} className="bg-[#1a0a1e]">{g.emoji} {g.name} ({inventory[id]})</option>;
+                return <option key={id} value={id} className="bg-[#1a0a1e]">{g.emoji} {g.name} ({countOf(id)})</option>;
               })}
             </select>
           </div>
