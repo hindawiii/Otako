@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Swords } from "lucide-react";
 import type { GameId } from "@/types/games-play";
 import { GAMES } from "./games";
 import { GameCard } from "./GameCard";
@@ -8,6 +8,9 @@ import { EmojiGuessGame } from "./EmojiGuessGame";
 import { MangaMemoryGame } from "./MangaMemoryGame";
 import { ReactionRaceGame } from "./ReactionRaceGame";
 import { WordScrambleGame } from "./WordScrambleGame";
+import { VoiceGuessGame } from "./VoiceGuessGame";
+import { PvPLobby } from "./PvPLobby";
+import { SeasonalEventBanner } from "./SeasonalEvents";
 
 export function GamesHub() {
   const [active, setActive] = useState<GameId | null>(null);

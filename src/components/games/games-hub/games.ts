@@ -6,4 +6,5 @@ export const GAMES: GameMeta[] = [
   { id: "manga-memory",  name: "ذاكرة المانجا",   emoji: "🧠", color: "#00d9ff", short: "طابق البطاقات المتشابهة", difficulty: 1, rewardCoins: 80 },
   { id: "reaction-race", name: "سرعة الرد",       emoji: "⚡", color: "#ffd700", short: "اختبر سرعة انعكاسك", difficulty: 1, rewardCoins: 60 },
   { id: "word-scramble", name: "ترتيب الحروف",    emoji: "🔤", color: "#10b981", short: "رتّب الحروف لأسماء الشخصيات", difficulty: 2, rewardCoins: 120 },
+  { id: "voice-guess",   name: "خمّن بالصوت",     emoji: "🎙️", color: "#a78bfa", short: "استمع للاقتباس وخمّن الأنمي", difficulty: 3, rewardCoins: 125 },
 ];
